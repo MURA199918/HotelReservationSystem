@@ -61,6 +61,7 @@ public class HotelReservationTest {
         hotelReservation.addweekendRegular("Bridgewood",60);
         hotelReservation.addweekendRegular("Ridgewood",150);
         hotelReservation.printdetails();
+        String cheaphotel = null;
         try{
             ArrayList<Integer> dayvalue = hotelReservation.dayofweek("2 Dec 2020","4 Dec 2020");
             int lakewoodrate=0,bridgewoodrate=0,ridgewoodrate=0;
@@ -78,6 +79,7 @@ public class HotelReservationTest {
             }
             if(lakewoodrate<bridgewoodrate && lakewoodrate<ridgewoodrate){
                 System.out.println("Cheapest hotel is LakeWood with rates "+lakewoodrate);
+                cheaphotel = "Lakewood";
             }
             else if(bridgewoodrate<lakewoodrate && bridgewoodrate<ridgewoodrate){
                 System.out.println("Cheapest hotel is BridgeWood with rates "+bridgewoodrate);
@@ -104,6 +106,7 @@ public class HotelReservationTest {
         catch (Exception e){
             System.out.println("Found Exception");
         }
+        Assert.assertEquals("Lakewood",cheaphotel);
     }
 
 }
