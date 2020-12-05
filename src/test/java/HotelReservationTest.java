@@ -183,4 +183,74 @@ public class HotelReservationTest {
         Assert.assertEquals(80,value);
     }
 
+    @Test
+    public void TestToCheck_CheapandBest_HotelforDateRange_forRewardCustomer(){
+        HotelReservation hotelReservation = new HotelReservation();
+        hotelReservation.addweekdayReward("Lakewood",80);
+        hotelReservation.addweekdayReward("Bridgewood",110);
+        hotelReservation.addweekdayReward("Ridgewood",100);
+        hotelReservation.addweekendReward("Lakewood",80);
+        hotelReservation.addweekendReward("Bridgewood",50);
+        hotelReservation.addweekendReward("Ridgewood",40);
+        hotelReservation.printdetails();
+        String cheaphotel = null;
+        try{
+            ArrayList<Integer> dayvalue = hotelReservation.dayofweek("2 Dec 2020","4 Dec 2020");
+            int lakewoodrate=0,bridgewoodrate=0,ridgewoodrate=0;
+            for(int i=0;i<dayvalue.size();i++){
+                if(dayvalue.get(i)>=1 && dayvalue.get(i)<=5){
+                    lakewoodrate+=80;
+                    bridgewoodrate+=110;
+                    ridgewoodrate+=100;
+                }
+                else{
+                    lakewoodrate+=80;
+                    bridgewoodrate+=50;
+                    ridgewoodrate+=40;
+                }
+            }
+            if(lakewoodrate<bridgewoodrate && lakewoodrate<ridgewoodrate){
+                System.out.println("Cheapest hotel is LakeWood with rates "+lakewoodrate+" and has rating "+hotelReservation.lrate);
+                cheaphotel = "Lakewood";
+            }
+            else if(bridgewoodrate<lakewoodrate && bridgewoodrate<ridgewoodrate){
+                System.out.println("Cheapest hotel is BridgeWood with rates "+bridgewoodrate+" and has rating "+hotelReservation.brate);
+                cheaphotel = "Bridgewood";
+            }
+            else if(ridgewoodrate<lakewoodrate && ridgewoodrate<bridgewoodrate){
+                System.out.println("Cheapest hotel is RidgeWood with rates "+ridgewoodrate+" and has rating "+hotelReservation.rrate);
+                cheaphotel = "Ridgewood";
+            }
+            else if(lakewoodrate==bridgewoodrate && lakewoodrate<ridgewoodrate){
+                System.out.println("Cheapest hotel is LakeWood and BridgeWood with rates "+lakewoodrate+" and "+bridgewoodrate);
+                System.out.println("Cheapest hotel with better rating is BridgeWood with rates "+bridgewoodrate+" and has rating "+hotelReservation.brate);
+                cheaphotel = "Bridgewood";
+            }
+            else if(bridgewoodrate==lakewoodrate && bridgewoodrate<ridgewoodrate){
+                System.out.println("Cheapest hotel is LakeWood and BridgeWood with rates "+lakewoodrate+" and "+bridgewoodrate);
+                System.out.println("Cheapest hotel with better rating is BridgeWood with rates "+bridgewoodrate+" and has rating "+hotelReservation.brate);
+                cheaphotel = "Bridgewood";
+            }
+            else if(ridgewoodrate==lakewoodrate && ridgewoodrate<bridgewoodrate){
+                System.out.println("Cheapest hotel is LakeWood and RidgeWood with rates "+lakewoodrate+" and "+ridgewoodrate);
+                System.out.println("Cheapest hotel with better rating is RidgeWood with rates "+ridgewoodrate+" and has rating "+hotelReservation.rrate);
+                cheaphotel = "Ridgewood";
+            }
+            else if(ridgewoodrate<lakewoodrate && ridgewoodrate==bridgewoodrate){
+                System.out.println("Cheapest hotel is BridgeWood and RidgeWood with rates "+ridgewoodrate+" and "+bridgewoodrate);
+                System.out.println("Cheapest hotel with better rating is RidgeWood with rates "+ridgewoodrate+" and has rating "+hotelReservation.rrate);
+                cheaphotel = "Ridgewood";
+            }
+            else{
+                System.out.println("Cheapest hotel is LakeWood, BridgeWood and RidgeWood");
+                System.out.println("Cheapest hotel with better rating is RidgeWood with rates "+ridgewoodrate+" and has rating "+hotelReservation.rrate);
+                cheaphotel = "Ridgewood";
+            }
+        }
+        catch (Exception e){
+            System.out.println("Found Exception");
+        }
+        Assert.assertEquals("Lakewood",cheaphotel);
+    }
+
 }
