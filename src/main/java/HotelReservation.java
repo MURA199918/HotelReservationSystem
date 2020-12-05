@@ -1,8 +1,8 @@
 import java.util.HashMap;
 
 public class HotelReservation {
-    static HashMap<String,Integer> Hotelweekdayregular = new HashMap<>();
-    static HashMap<String,Integer> Hotelweekendregular = new HashMap<>();
+    public static HashMap<String,Integer> Hotelweekdayregular = new HashMap<>();
+    public static HashMap<String,Integer> Hotelweekendregular = new HashMap<>();
     public static void addweekdayRegular(String hotelname, int rate) {
         Hotelweekdayregular.put(hotelname,rate);
     }

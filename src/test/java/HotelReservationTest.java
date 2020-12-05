@@ -1,6 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class HotelReservationTest {
@@ -14,6 +15,13 @@ public class HotelReservationTest {
         hotelReservation.addweekendRegular("Bridgewood",60);
         hotelReservation.addweekendRegular("Ridgewood",150);
         hotelReservation.printdetails();
+        int value = 0;
+        for (HashMap.Entry<String,Integer> entry : hotelReservation.Hotelweekdayregular.entrySet()){
+            if(entry.getKey().equals("Lakewood")){
+                value = entry.getValue();
+            }
+        }
+        Assert.assertEquals(110,value);
     }
 
 }
