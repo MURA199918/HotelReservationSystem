@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="HotelReservationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-05T11:01:43" hostname="DESKTOP-J9DM2GE" time="0.031">
+<testsuite name="HotelReservationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-05T11:26:59" hostname="DESKTOP-J9DM2GE" time="0.034">
   <properties/>
-  <testcase name="TesttoAddRatingsforHotel" classname="HotelReservationTest" time="0.031"/>
+  <testcase name="Test3ToCheck_CheapandBest_HotelforDateRange" classname="HotelReservationTest" time="0.034"/>
   <system-out><![CDATA[Weekday rates of hotel
 Hotel name: Ridgewood Rates: 220
 Hotel name: Bridgewood Rates: 160
@@ -13,6 +13,7 @@ Hotel name: Lakewood Rates: 90
 Rating of Lakewood is: 3
 Rating of Bridgewood is: 4
 Rating of Ridgewood is: 5
+Cheapest hotel is LakeWood with rates 330 and has rating 3
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

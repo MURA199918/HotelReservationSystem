@@ -52,7 +52,7 @@ public class HotelReservationTest {
     }
 
     @Test
-    public void Test3ToCheckHotelforDateRange(){
+    public void Test3ToCheck_CheapandBest_HotelforDateRange(){
         HotelReservation hotelReservation = new HotelReservation();
         hotelReservation.addweekdayRegular("Lakewood",110);
         hotelReservation.addweekdayRegular("Bridgewood",160);
@@ -78,29 +78,41 @@ public class HotelReservationTest {
                 }
             }
             if(lakewoodrate<bridgewoodrate && lakewoodrate<ridgewoodrate){
-                System.out.println("Cheapest hotel is LakeWood with rates "+lakewoodrate);
+                System.out.println("Cheapest hotel is LakeWood with rates "+lakewoodrate+" and has rating "+hotelReservation.lrate);
                 cheaphotel = "Lakewood";
             }
             else if(bridgewoodrate<lakewoodrate && bridgewoodrate<ridgewoodrate){
-                System.out.println("Cheapest hotel is BridgeWood with rates "+bridgewoodrate);
+                System.out.println("Cheapest hotel is BridgeWood with rates "+bridgewoodrate+" and has rating "+hotelReservation.brate);
+                cheaphotel = "Bridgewood";
             }
             else if(ridgewoodrate<lakewoodrate && ridgewoodrate<bridgewoodrate){
-                System.out.println("Cheapest hotel is RidgeWood with rates "+ridgewoodrate);
+                System.out.println("Cheapest hotel is RidgeWood with rates "+ridgewoodrate+" and has rating "+hotelReservation.rrate);
+                cheaphotel = "Ridgewood";
             }
             else if(lakewoodrate==bridgewoodrate && lakewoodrate<ridgewoodrate){
                 System.out.println("Cheapest hotel is LakeWood and BridgeWood with rates "+lakewoodrate+" and "+bridgewoodrate);
+                System.out.println("Cheapest hotel with better rating is BridgeWood with rates "+bridgewoodrate+" and has rating "+hotelReservation.brate);
+                cheaphotel = "Bridgewood";
             }
             else if(bridgewoodrate==lakewoodrate && bridgewoodrate<ridgewoodrate){
                 System.out.println("Cheapest hotel is LakeWood and BridgeWood with rates "+lakewoodrate+" and "+bridgewoodrate);
+                System.out.println("Cheapest hotel with better rating is BridgeWood with rates "+bridgewoodrate+" and has rating "+hotelReservation.brate);
+                cheaphotel = "Bridgewood";
             }
             else if(ridgewoodrate==lakewoodrate && ridgewoodrate<bridgewoodrate){
                 System.out.println("Cheapest hotel is LakeWood and RidgeWood with rates "+lakewoodrate+" and "+ridgewoodrate);
+                System.out.println("Cheapest hotel with better rating is RidgeWood with rates "+ridgewoodrate+" and has rating "+hotelReservation.rrate);
+                cheaphotel = "Ridgewood";
             }
             else if(ridgewoodrate<lakewoodrate && ridgewoodrate==bridgewoodrate){
                 System.out.println("Cheapest hotel is BridgeWood and RidgeWood with rates "+ridgewoodrate+" and "+bridgewoodrate);
+                System.out.println("Cheapest hotel with better rating is RidgeWood with rates "+ridgewoodrate+" and has rating "+hotelReservation.rrate);
+                cheaphotel = "Ridgewood";
             }
             else{
                 System.out.println("Cheapest hotel is LakeWood, BridgeWood and RidgeWood");
+                System.out.println("Cheapest hotel with better rating is RidgeWood with rates "+ridgewoodrate+" and has rating "+hotelReservation.rrate);
+                cheaphotel = "Ridgewood";
             }
         }
         catch (Exception e){
