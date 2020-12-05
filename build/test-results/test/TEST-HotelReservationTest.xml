@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="HotelReservationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-05T11:57:14" hostname="DESKTOP-J9DM2GE" time="0.034">
+<testsuite name="HotelReservationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-05T14:35:19" hostname="DESKTOP-J9DM2GE" time="0.036">
   <properties/>
-  <testcase name="TestToCheck_CheapandBest_HotelforDateRange_forRewardCustomer" classname="HotelReservationTest" time="0.034"/>
+  <testcase name="TestToCheck_CheapandBest_HotelforDateRange_forRewardCustomer" classname="HotelReservationTest" time="0.036"/>
   <system-out><![CDATA[Weekday rates of hotel for Regular customers
 Weekend rates of hotel for Regular Customers
 Weekday rates of hotel for Reward customers
