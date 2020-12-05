@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="HotelReservationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-05T11:38:13" hostname="DESKTOP-J9DM2GE" time="0.038">
+<testsuite name="HotelReservationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-05T11:50:21" hostname="DESKTOP-J9DM2GE" time="0.039">
   <properties/>
-  <testcase name="TesttofindBestRatedHotelforgivenDates" classname="HotelReservationTest" time="0.038"/>
-  <system-out><![CDATA[Weekday rates of hotel
-Hotel name: Ridgewood Rates: 220
-Hotel name: Bridgewood Rates: 160
-Hotel name: Lakewood Rates: 110
-Weekend rates of hotel
-Hotel name: Ridgewood Rates: 150
-Hotel name: Bridgewood Rates: 60
-Hotel name: Lakewood Rates: 90
+  <testcase name="TesttoaddHoteldetailsforRewardCustomers" classname="HotelReservationTest" time="0.039"/>
+  <system-out><![CDATA[Weekday rates of hotel for Regular customers
+Weekend rates of hotel for Regular Customers
+Weekday rates of hotel for Reward customers
+Hotel name: Ridgewood Rates: 100
+Hotel name: Bridgewood Rates: 110
+Hotel name: Lakewood Rates: 80
+Weekend rates of hotel for Reward Customers
+Hotel name: Ridgewood Rates: 40
+Hotel name: Bridgewood Rates: 50
+Hotel name: Lakewood Rates: 80
 Rating of Lakewood is: 3
 Rating of Bridgewood is: 4
 Rating of Ridgewood is: 5
-Best rated hotel for given dates is Ridgewood with rates: 660 and has rating 5
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

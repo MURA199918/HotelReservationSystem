@@ -164,4 +164,23 @@ public class HotelReservationTest {
         Assert.assertEquals("Ridgewood",bestratedhotel);
     }
 
+    @Test
+    public void TesttoaddHoteldetailsforRewardCustomers(){
+        HotelReservation hotelReservation = new HotelReservation();
+        hotelReservation.addweekdayReward("Lakewood",80);
+        hotelReservation.addweekdayReward("Bridgewood",110);
+        hotelReservation.addweekdayReward("Ridgewood",100);
+        hotelReservation.addweekendReward("Lakewood",80);
+        hotelReservation.addweekendReward("Bridgewood",50);
+        hotelReservation.addweekendReward("Ridgewood",40);
+        hotelReservation.printdetails();
+        int value = 0;
+        for (HashMap.Entry<String,Integer> entry : hotelReservation.Hotelweekdayreward.entrySet()){
+            if(entry.getKey().equals("Lakewood")){
+                value = entry.getValue();
+            }
+        }
+        Assert.assertEquals(80,value);
+    }
+
 }

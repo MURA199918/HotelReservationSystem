@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class HotelReservation {
     public static HashMap<String,Integer> Hotelweekdayregular = new HashMap<>();
     public static HashMap<String,Integer> Hotelweekendregular = new HashMap<>();
+    public static HashMap<String,Integer> Hotelweekdayreward = new HashMap<>();
+    public static HashMap<String,Integer> Hotelweekendreward = new HashMap<>();
     public static int lrate = 3;
     public static int brate = 4;
     public static int rrate = 5;
@@ -14,13 +16,27 @@ public class HotelReservation {
     public static void addweekendRegular(String hotelname, int rate) {
         Hotelweekendregular.put(hotelname,rate);
     }
+    public static void addweekdayReward(String hotelname, int rate) {
+        Hotelweekdayreward.put(hotelname,rate);
+    }
+    public void addweekendReward(String hotelname, int rate) {
+        Hotelweekendreward.put(hotelname,rate);
+    }
     public static void printdetails(){
-        System.out.println("Weekday rates of hotel");
+        System.out.println("Weekday rates of hotel for Regular customers");
         for (HashMap.Entry<String,Integer> entry : Hotelweekdayregular.entrySet()){
                System.out.println("Hotel name: "+entry.getKey()+" Rates: "+entry.getValue());
         }
-        System.out.println("Weekend rates of hotel");
+        System.out.println("Weekend rates of hotel for Regular Customers");
         for(HashMap.Entry<String,Integer> entry : Hotelweekendregular.entrySet()){
+            System.out.println("Hotel name: "+entry.getKey()+" Rates: "+entry.getValue());
+        }
+        System.out.println("Weekday rates of hotel for Reward customers");
+        for (HashMap.Entry<String,Integer> entry : Hotelweekdayreward.entrySet()){
+            System.out.println("Hotel name: "+entry.getKey()+" Rates: "+entry.getValue());
+        }
+        System.out.println("Weekend rates of hotel for Reward Customers");
+        for(HashMap.Entry<String,Integer> entry : Hotelweekendreward.entrySet()){
             System.out.println("Hotel name: "+entry.getKey()+" Rates: "+entry.getValue());
         }
         System.out.println("Rating of Lakewood is: "+lrate);
