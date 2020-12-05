@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="HotelReservationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-05T14:35:19" hostname="DESKTOP-J9DM2GE" time="0.036">
+<testsuite name="HotelReservationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-05T14:43:11" hostname="DESKTOP-J9DM2GE" time="0.032">
   <properties/>
-  <testcase name="TestToCheck_CheapandBest_HotelforDateRange_forRewardCustomer" classname="HotelReservationTest" time="0.036"/>
+  <testcase name="TestToCheck_CheapandBest_HotelforDateRange_forRegularCustomer" classname="HotelReservationTest" time="0.032"/>
   <system-out><![CDATA[Weekday rates of hotel for Regular customers
+Hotel name: Ridgewood Rates: 220
+Hotel name: Bridgewood Rates: 160
+Hotel name: Lakewood Rates: 110
 Weekend rates of hotel for Regular Customers
+Hotel name: Ridgewood Rates: 150
+Hotel name: Bridgewood Rates: 60
+Hotel name: Lakewood Rates: 90
 Weekday rates of hotel for Reward customers
-Hotel name: Ridgewood Rates: 100
-Hotel name: Bridgewood Rates: 110
-Hotel name: Lakewood Rates: 80
 Weekend rates of hotel for Reward Customers
-Hotel name: Ridgewood Rates: 40
-Hotel name: Bridgewood Rates: 50
-Hotel name: Lakewood Rates: 80
 Rating of Lakewood is: 3
 Rating of Bridgewood is: 4
 Rating of Ridgewood is: 5
-Cheapest hotel is LakeWood with rates 240 and has rating 3
+Cheapest hotel is LakeWood with rates 330 and has rating 3
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,14 +1,14 @@
 .Weekday rates of hotel for Regular customers
+"Hotel name: Ridgewood Rates: 220
+#Hotel name: Bridgewood Rates: 160
+!Hotel name: Lakewood Rates: 110
 .Weekend rates of hotel for Regular Customers
+"Hotel name: Ridgewood Rates: 150
+"Hotel name: Bridgewood Rates: 60
+ Hotel name: Lakewood Rates: 90
 -Weekday rates of hotel for Reward customers
-"Hotel name: Ridgewood Rates: 100
-#Hotel name: Bridgewood Rates: 110
- Hotel name: Lakewood Rates: 80
 -Weekend rates of hotel for Reward Customers
-!Hotel name: Ridgewood Rates: 40
-"Hotel name: Bridgewood Rates: 50
- Hotel name: Lakewood Rates: 80
 Rating of Lakewood is: 3
 Rating of Bridgewood is: 4
 Rating of Ridgewood is: 5
-<Cheapest hotel is LakeWood with rates 240 and has rating 3
+<Cheapest hotel is LakeWood with rates 330 and has rating 3

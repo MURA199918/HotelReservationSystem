@@ -185,14 +185,14 @@ public class HotelReservationTest {
     }
 
     @Test
-    public void TestToCheck_CheapandBest_HotelforDateRange_forRewardCustomer(){
+    public void TestToCheck_CheapandBest_HotelforDateRange_forRegularCustomer(){
         HotelReservation hotelReservation = new HotelReservation();
-        hotelReservation.addweekdayReward("Lakewood",80);
-        hotelReservation.addweekdayReward("Bridgewood",110);
-        hotelReservation.addweekdayReward("Ridgewood",100);
-        hotelReservation.addweekendReward("Lakewood",80);
-        hotelReservation.addweekendReward("Bridgewood",50);
-        hotelReservation.addweekendReward("Ridgewood",40);
+        hotelReservation.addweekdayRegular("Lakewood",110);
+        hotelReservation.addweekdayRegular("Bridgewood",160);
+        hotelReservation.addweekdayRegular("Ridgewood",220);
+        hotelReservation.addweekendRegular("Lakewood",90);
+        hotelReservation.addweekendRegular("Bridgewood",60);
+        hotelReservation.addweekendRegular("Ridgewood",150);
         hotelReservation.printdetails();
         String cheaphotel = null;
         try{
@@ -202,7 +202,7 @@ public class HotelReservationTest {
             final int[] ridgewoodrate = {0};
             for(int i=0;i<dayvalue.size();i++){
                 if(dayvalue.get(i)>=1 && dayvalue.get(i)<=5){
-                    hotelReservation.Hotelweekdayreward.entrySet().stream().forEach(e->{
+                    hotelReservation.Hotelweekdayregular.entrySet().stream().forEach(e->{
                          if(e.getKey().equals("Lakewood")){
                              lakewoodrate[0] += e.getValue();
                          }
@@ -215,7 +215,7 @@ public class HotelReservationTest {
                     });
                 }
                 else{
-                    hotelReservation.Hotelweekendreward.entrySet().stream().forEach(e->{
+                    hotelReservation.Hotelweekendregular.entrySet().stream().forEach(e->{
                         if(e.getKey().equals("Lakewood")){
                             lakewoodrate[0] += e.getValue();
                         }
