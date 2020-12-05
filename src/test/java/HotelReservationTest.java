@@ -109,4 +109,17 @@ public class HotelReservationTest {
         Assert.assertEquals("Lakewood",cheaphotel);
     }
 
+    @Test
+    public void TesttoAddRatingsforHotel(){
+        HotelReservation hotelReservation = new HotelReservation();
+        hotelReservation.addweekdayRegular("Lakewood",110);
+        hotelReservation.addweekdayRegular("Bridgewood",160);
+        hotelReservation.addweekdayRegular("Ridgewood",220);
+        hotelReservation.addweekendRegular("Lakewood",90);
+        hotelReservation.addweekendRegular("Bridgewood",60);
+        hotelReservation.addweekendRegular("Ridgewood",150);
+        hotelReservation.printdetails();
+        Assert.assertEquals(3,hotelReservation.lrate);
+    }
+
 }

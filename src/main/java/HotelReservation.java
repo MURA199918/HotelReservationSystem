@@ -5,6 +5,9 @@ import java.util.Scanner;
 public class HotelReservation {
     public static HashMap<String,Integer> Hotelweekdayregular = new HashMap<>();
     public static HashMap<String,Integer> Hotelweekendregular = new HashMap<>();
+    public static int lrate = 3;
+    public static int brate = 4;
+    public static int rrate = 5;
     public static void addweekdayRegular(String hotelname, int rate) {
         Hotelweekdayregular.put(hotelname,rate);
     }
@@ -20,6 +23,9 @@ public class HotelReservation {
         for(HashMap.Entry<String,Integer> entry : Hotelweekendregular.entrySet()){
             System.out.println("Hotel name: "+entry.getKey()+" Rates: "+entry.getValue());
         }
+        System.out.println("Rating of Lakewood is: "+lrate);
+        System.out.println("Rating of Bridgewood is: "+brate);
+        System.out.println("Rating of Ridgewood is: "+rrate);
     }
     public static ArrayList<Integer> dayofweek(String startdate, String enddate)
     {
@@ -90,6 +96,8 @@ public class HotelReservation {
         int date = sc.nextInt();
         System.out.println("Enter month of the Customer");
         String month = sc.next();
+        System.out.println("Enter year of the Customer");
+        int year = sc.nextInt();
     }
 
 

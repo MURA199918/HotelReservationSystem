@@ -6,4 +6,6 @@
 "Hotel name: Ridgewood Rates: 150
 "Hotel name: Bridgewood Rates: 60
  Hotel name: Lakewood Rates: 90
-+Cheapest hotel is LakeWood with rates 330
+Rating of Lakewood is: 3
+Rating of Bridgewood is: 4
+Rating of Ridgewood is: 5
