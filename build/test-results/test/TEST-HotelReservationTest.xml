@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="HotelReservationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-05T05:43:20" hostname="DESKTOP-J9DM2GE" time="0.02">
+<testsuite name="HotelReservationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-05T06:34:40" hostname="DESKTOP-J9DM2GE" time="0.024">
   <properties/>
-  <testcase name="Test2ToCheckCheapHotelforGivenDate" classname="HotelReservationTest" time="0.02"/>
+  <testcase name="Test3ToCheckHotelforDateRange" classname="HotelReservationTest" time="0.024"/>
   <system-out><![CDATA[Weekday rates of hotel
 Hotel name: Ridgewood Rates: 220
 Hotel name: Bridgewood Rates: 160
 Hotel name: Lakewood Rates: 110
 Weekend rates of hotel
+Hotel name: Ridgewood Rates: 150
+Hotel name: Bridgewood Rates: 60
+Hotel name: Lakewood Rates: 90
+Cheapest hotel is LakeWood with rates 330
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
