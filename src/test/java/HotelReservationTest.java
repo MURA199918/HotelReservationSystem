@@ -134,4 +134,34 @@ public class HotelReservationTest {
         Assert.assertEquals(3,hotelReservation.lrate);
     }
 
+    @Test
+    public void TesttofindBestRatedHotelforgivenDates(){
+        HotelReservation hotelReservation = new HotelReservation();
+        hotelReservation.addweekdayRegular("Lakewood",110);
+        hotelReservation.addweekdayRegular("Bridgewood",160);
+        hotelReservation.addweekdayRegular("Ridgewood",220);
+        hotelReservation.addweekendRegular("Lakewood",90);
+        hotelReservation.addweekendRegular("Bridgewood",60);
+        hotelReservation.addweekendRegular("Ridgewood",150);
+        hotelReservation.printdetails();
+        ArrayList<Integer> dayvalue = hotelReservation.dayofweek("2 Dec 2020","4 Dec 2020");
+        int ridgewoodrate=0;
+        String bestratedhotel = "Ridgewood";
+        try{
+            for(int i=0;i<dayvalue.size();i++){
+                if(dayvalue.get(i)>=1 && dayvalue.get(i)<=5){
+                    ridgewoodrate+=220;
+                }
+                else{
+                    ridgewoodrate+=150;
+                }
+            }
+        }
+        catch (Exception e){
+            System.out.println("Found Exception");
+        }
+        System.out.println("Best rated hotel for given dates is Ridgewood with rates: "+ridgewoodrate+" and has rating "+hotelReservation.rrate);
+        Assert.assertEquals("Ridgewood",bestratedhotel);
+    }
+
 }
