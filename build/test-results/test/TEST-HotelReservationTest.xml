@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="HotelReservationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-05T14:43:11" hostname="DESKTOP-J9DM2GE" time="0.032">
+<testsuite name="HotelReservationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-07T14:07:23" hostname="DESKTOP-J9DM2GE" time="0.036">
   <properties/>
-  <testcase name="TestToCheck_CheapandBest_HotelforDateRange_forRegularCustomer" classname="HotelReservationTest" time="0.032"/>
+  <testcase name="TestToCheck_CheapandBest_HotelforDateRange_forRegularCustomer" classname="HotelReservationTest" time="0.036"/>
   <system-out><![CDATA[Weekday rates of hotel for Regular customers
 Hotel name: Ridgewood Rates: 220
 Hotel name: Bridgewood Rates: 160

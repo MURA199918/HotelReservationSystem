@@ -10,6 +10,7 @@ public class HotelReservation {
     public static int lrate = 3;
     public static int brate = 4;
     public static int rrate = 5;
+    public static String type=null;
     public static void addweekdayRegular(String hotelname, int rate) {
         Hotelweekdayregular.put(hotelname,rate);
     }
@@ -50,6 +51,7 @@ public class HotelReservation {
         String[] endarr = enddate.toLowerCase().split(" ");
         int date = Integer.parseInt(startarr[0]);
         int enddatevalue = Integer.parseInt(endarr[0]);
+        type = startarr[3];
         for(int i=date;i<=enddatevalue;i++){
             String month = (startarr[1]);
             int m = 0;
@@ -95,6 +97,9 @@ public class HotelReservation {
             day.add( ( year + year/4 - year/100 + year/400 + t[m-1] + i) % 7 );
         }
         return day;
+    }
+    public static String Tyoe(String type){
+        return type;
     }
     public static void main(String[] args) {
         System.out.println("............Welcome to Hotel Reservation Program.............");

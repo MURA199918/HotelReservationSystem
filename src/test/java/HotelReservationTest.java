@@ -136,7 +136,7 @@ public class HotelReservationTest {
     }
 
     @Test
-    public void TesttofindBestRatedHotelforgivenDates(){
+    public void TesttofindBestRatedHotelforgivenDates() throws HotelReservationException {
         HotelReservation hotelReservation = new HotelReservation();
         hotelReservation.addweekdayRegular("Lakewood",110);
         hotelReservation.addweekdayRegular("Bridgewood",160);
@@ -197,76 +197,83 @@ public class HotelReservationTest {
         String cheaphotel = null;
         try{
             ArrayList<Integer> dayvalue = hotelReservation.dayofweek("2 Dec 2020","4 Dec 2020");
-            final int[] lakewoodrate = {0};
-            final int[] bridgewoodrate = {0};
-            final int[] ridgewoodrate = {0};
-            for(int i=0;i<dayvalue.size();i++){
-                if(dayvalue.get(i)>=1 && dayvalue.get(i)<=5){
-                    hotelReservation.Hotelweekdayregular.entrySet().stream().forEach(e->{
-                         if(e.getKey().equals("Lakewood")){
-                             lakewoodrate[0] += e.getValue();
-                         }
-                         else if(e.getKey().equals("Bridgewood")){
-                             bridgewoodrate[0] += e.getValue();
-                         }
-                         else{
-                             ridgewoodrate[0] += e.getValue();
-                         }
-                    });
+            String type = hotelReservation.Tyoe("Regular");
+            if(type.equals("Regular")){
+                final int[] lakewoodrate = {0};
+                final int[] bridgewoodrate = {0};
+                final int[] ridgewoodrate = {0};
+                for(int i=0;i<dayvalue.size();i++){
+                    if(dayvalue.get(i)>=1 && dayvalue.get(i)<=5){
+                        hotelReservation.Hotelweekdayregular.entrySet().stream().forEach(e->{
+                            if(e.getKey().equals("Lakewood")){
+                                lakewoodrate[0] += e.getValue();
+                            }
+                            else if(e.getKey().equals("Bridgewood")){
+                                bridgewoodrate[0] += e.getValue();
+                            }
+                            else{
+                                ridgewoodrate[0] += e.getValue();
+                            }
+                        });
+                    }
+                    else{
+                        hotelReservation.Hotelweekendregular.entrySet().stream().forEach(e->{
+                            if(e.getKey().equals("Lakewood")){
+                                lakewoodrate[0] += e.getValue();
+                            }
+                            else if(e.getKey().equals("Bridgewood")){
+                                bridgewoodrate[0] += e.getValue();
+                            }
+                            else{
+                                ridgewoodrate[0] += e.getValue();
+                            }
+                        });
+                    }
+                }
+                if(lakewoodrate[0] < bridgewoodrate[0] && lakewoodrate[0] < ridgewoodrate[0]){
+                    System.out.println("Cheapest hotel is LakeWood with rates "+ lakewoodrate[0] +" and has rating "+hotelReservation.lrate);
+                    cheaphotel = "Lakewood";
+                }
+                else if(bridgewoodrate[0] < lakewoodrate[0] && bridgewoodrate[0] < ridgewoodrate[0]){
+                    System.out.println("Cheapest hotel is BridgeWood with rates "+ bridgewoodrate[0] +" and has rating "+hotelReservation.brate);
+                    cheaphotel = "Bridgewood";
+                }
+                else if(ridgewoodrate[0] < lakewoodrate[0] && ridgewoodrate[0] < bridgewoodrate[0]){
+                    System.out.println("Cheapest hotel is RidgeWood with rates "+ ridgewoodrate[0] +" and has rating "+hotelReservation.rrate);
+                    cheaphotel = "Ridgewood";
+                }
+                else if(lakewoodrate[0] == bridgewoodrate[0] && lakewoodrate[0] < ridgewoodrate[0]){
+                    System.out.println("Cheapest hotel is LakeWood and BridgeWood with rates "+ lakewoodrate[0] +" and "+ bridgewoodrate[0]);
+                    System.out.println("Cheapest hotel with better rating is BridgeWood with rates "+ bridgewoodrate[0] +" and has rating "+hotelReservation.brate);
+                    cheaphotel = "Bridgewood";
+                }
+                else if(bridgewoodrate[0] == lakewoodrate[0] && bridgewoodrate[0] < ridgewoodrate[0]){
+                    System.out.println("Cheapest hotel is LakeWood and BridgeWood with rates "+ lakewoodrate[0] +" and "+ bridgewoodrate[0]);
+                    System.out.println("Cheapest hotel with better rating is BridgeWood with rates "+ bridgewoodrate[0] +" and has rating "+hotelReservation.brate);
+                    cheaphotel = "Bridgewood";
+                }
+                else if(ridgewoodrate[0] == lakewoodrate[0] && ridgewoodrate[0] < bridgewoodrate[0]){
+                    System.out.println("Cheapest hotel is LakeWood and RidgeWood with rates "+ lakewoodrate[0] +" and "+ ridgewoodrate[0]);
+                    System.out.println("Cheapest hotel with better rating is RidgeWood with rates "+ ridgewoodrate[0] +" and has rating "+hotelReservation.rrate);
+                    cheaphotel = "Ridgewood";
+                }
+                else if(ridgewoodrate[0] < lakewoodrate[0] && ridgewoodrate[0] == bridgewoodrate[0]){
+                    System.out.println("Cheapest hotel is BridgeWood and RidgeWood with rates "+ ridgewoodrate[0] +" and "+ bridgewoodrate[0]);
+                    System.out.println("Cheapest hotel with better rating is RidgeWood with rates "+ ridgewoodrate[0] +" and has rating "+hotelReservation.rrate);
+                    cheaphotel = "Ridgewood";
                 }
                 else{
-                    hotelReservation.Hotelweekendregular.entrySet().stream().forEach(e->{
-                        if(e.getKey().equals("Lakewood")){
-                            lakewoodrate[0] += e.getValue();
-                        }
-                        else if(e.getKey().equals("Bridgewood")){
-                            bridgewoodrate[0] += e.getValue();
-                        }
-                        else{
-                            ridgewoodrate[0] += e.getValue();
-                        }
-                    });
+                    System.out.println("Cheapest hotel is LakeWood, BridgeWood and RidgeWood");
+                    System.out.println("Cheapest hotel with better rating is RidgeWood with rates "+ ridgewoodrate[0] +" and has rating "+hotelReservation.rrate);
+                    cheaphotel = "Ridgewood";
                 }
             }
-            if(lakewoodrate[0] < bridgewoodrate[0] && lakewoodrate[0] < ridgewoodrate[0]){
-                System.out.println("Cheapest hotel is LakeWood with rates "+ lakewoodrate[0] +" and has rating "+hotelReservation.lrate);
-                cheaphotel = "Lakewood";
-            }
-            else if(bridgewoodrate[0] < lakewoodrate[0] && bridgewoodrate[0] < ridgewoodrate[0]){
-                System.out.println("Cheapest hotel is BridgeWood with rates "+ bridgewoodrate[0] +" and has rating "+hotelReservation.brate);
-                cheaphotel = "Bridgewood";
-            }
-            else if(ridgewoodrate[0] < lakewoodrate[0] && ridgewoodrate[0] < bridgewoodrate[0]){
-                System.out.println("Cheapest hotel is RidgeWood with rates "+ ridgewoodrate[0] +" and has rating "+hotelReservation.rrate);
-                cheaphotel = "Ridgewood";
-            }
-            else if(lakewoodrate[0] == bridgewoodrate[0] && lakewoodrate[0] < ridgewoodrate[0]){
-                System.out.println("Cheapest hotel is LakeWood and BridgeWood with rates "+ lakewoodrate[0] +" and "+ bridgewoodrate[0]);
-                System.out.println("Cheapest hotel with better rating is BridgeWood with rates "+ bridgewoodrate[0] +" and has rating "+hotelReservation.brate);
-                cheaphotel = "Bridgewood";
-            }
-            else if(bridgewoodrate[0] == lakewoodrate[0] && bridgewoodrate[0] < ridgewoodrate[0]){
-                System.out.println("Cheapest hotel is LakeWood and BridgeWood with rates "+ lakewoodrate[0] +" and "+ bridgewoodrate[0]);
-                System.out.println("Cheapest hotel with better rating is BridgeWood with rates "+ bridgewoodrate[0] +" and has rating "+hotelReservation.brate);
-                cheaphotel = "Bridgewood";
-            }
-            else if(ridgewoodrate[0] == lakewoodrate[0] && ridgewoodrate[0] < bridgewoodrate[0]){
-                System.out.println("Cheapest hotel is LakeWood and RidgeWood with rates "+ lakewoodrate[0] +" and "+ ridgewoodrate[0]);
-                System.out.println("Cheapest hotel with better rating is RidgeWood with rates "+ ridgewoodrate[0] +" and has rating "+hotelReservation.rrate);
-                cheaphotel = "Ridgewood";
-            }
-            else if(ridgewoodrate[0] < lakewoodrate[0] && ridgewoodrate[0] == bridgewoodrate[0]){
-                System.out.println("Cheapest hotel is BridgeWood and RidgeWood with rates "+ ridgewoodrate[0] +" and "+ bridgewoodrate[0]);
-                System.out.println("Cheapest hotel with better rating is RidgeWood with rates "+ ridgewoodrate[0] +" and has rating "+hotelReservation.rrate);
-                cheaphotel = "Ridgewood";
-            }
             else{
-                System.out.println("Cheapest hotel is LakeWood, BridgeWood and RidgeWood");
-                System.out.println("Cheapest hotel with better rating is RidgeWood with rates "+ ridgewoodrate[0] +" and has rating "+hotelReservation.rrate);
-                cheaphotel = "Ridgewood";
+                System.out.println("Customer not Regular");
             }
         }
         catch (Exception e){
+            //Assert.assertEquals(HotelReservationException.ExceptionType.ENTERED_INVALID,e.type);
             System.out.println("Found Exception");
         }
         Assert.assertEquals("Lakewood",cheaphotel);
