@@ -272,8 +272,8 @@ public class HotelReservationTest {
                 System.out.println("Customer not Regular");
             }
         }
-        catch (Exception e){
-            //Assert.assertEquals(HotelReservationException.ExceptionType.ENTERED_INVALID,e.type);
+        catch (HotelReservationException e){
+            Assert.assertEquals(HotelReservationException.ExceptionType.ENTERED_INVALID,e.type);
             System.out.println("Found Exception");
         }
         Assert.assertEquals("Lakewood",cheaphotel);

@@ -44,59 +44,64 @@ public class HotelReservation {
         System.out.println("Rating of Bridgewood is: "+brate);
         System.out.println("Rating of Ridgewood is: "+rrate);
     }
-    public static ArrayList<Integer> dayofweek(String startdate, String enddate)
+    public static ArrayList<Integer> dayofweek(String startdate, String enddate) throws HotelReservationException
     {
-        ArrayList<Integer> day = new ArrayList<>();
-        String[] startarr = startdate.toLowerCase().split(" ");
-        String[] endarr = enddate.toLowerCase().split(" ");
-        int date = Integer.parseInt(startarr[0]);
-        int enddatevalue = Integer.parseInt(endarr[0]);
-        type = startarr[3];
-        for(int i=date;i<=enddatevalue;i++){
-            String month = (startarr[1]);
-            int m = 0;
-            int year = Integer.parseInt(startarr[2]);
-            if(month.equals("jan")){
-                m = 1;
+        try{
+            ArrayList<Integer> day = new ArrayList<>();
+            String[] startarr = startdate.toLowerCase().split(" ");
+            String[] endarr = enddate.toLowerCase().split(" ");
+            int date = Integer.parseInt(startarr[0]);
+            int enddatevalue = Integer.parseInt(endarr[0]);
+            type = startarr[3];
+            for(int i=date;i<=enddatevalue;i++){
+                String month = (startarr[1]);
+                int m = 0;
+                int year = Integer.parseInt(startarr[2]);
+                if(month.equals("jan")){
+                    m = 1;
+                }
+                else if(month.equals("feb")){
+                    m = 2;
+                }
+                else if(month.equals("mar")){
+                    m = 3;
+                }
+                else if(month.equals("apr")){
+                    m = 4;
+                }
+                else if(month.equals("may")){
+                    m = 5;
+                }
+                else if(month.equals("june")){
+                    m = 6;
+                }
+                else if(month.equals("july")){
+                    m = 7;
+                }
+                else if(month.equals("aug")){
+                    m = 8;
+                }
+                else if(month.equals("sep")){
+                    m = 9;
+                }
+                else if(month.equals("oct")){
+                    m = 10;
+                }
+                else if(month.equals("nov")){
+                    m = 11;
+                }
+                else if(month.equals("dec")){
+                    m = 12;
+                }
+                int t[] = { 0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4 };
+                year -= (m < 3) ? 1 : 0;
+                day.add( ( year + year/4 - year/100 + year/400 + t[m-1] + i) % 7 );
             }
-            else if(month.equals("feb")){
-                m = 2;
-            }
-            else if(month.equals("mar")){
-                m = 3;
-            }
-            else if(month.equals("apr")){
-                m = 4;
-            }
-            else if(month.equals("may")){
-                m = 5;
-            }
-            else if(month.equals("june")){
-                m = 6;
-            }
-            else if(month.equals("july")){
-                m = 7;
-            }
-            else if(month.equals("aug")){
-                m = 8;
-            }
-            else if(month.equals("sep")){
-                m = 9;
-            }
-            else if(month.equals("oct")){
-                m = 10;
-            }
-            else if(month.equals("nov")){
-                m = 11;
-            }
-            else if(month.equals("dec")){
-                m = 12;
-            }
-            int t[] = { 0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4 };
-            year -= (m < 3) ? 1 : 0;
-            day.add( ( year + year/4 - year/100 + year/400 + t[m-1] + i) % 7 );
+            return day;
+        }catch (Exception e){
+            throw new HotelReservationException(HotelReservationException.ExceptionType.ENTERED_INVALID,"Please enter valid input");
         }
-        return day;
+
     }
     public static String Tyoe(String type){
         return type;
